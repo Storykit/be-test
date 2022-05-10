@@ -1,0 +1,9 @@
+{
+  "redis": {
+    "message_queue": "local_message_queue"
+  },
+  "app": {
+    "cycle_timer": 2500,
+    "port": 80
+  }
+}
