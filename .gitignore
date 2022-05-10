@@ -3,3 +3,4 @@ coverage/
 dist/
 tsconfig.tsbuildinfo
 redis/
+.DS_Store
