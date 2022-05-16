@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import http from 'http';
 import config from 'config';
 
-import messageRouter from './message/message.router';
+import mailRouter from './mailbox/mailbox.router';
 import log from './services/logging.service';
 
 const PORT = config.get<{ port: number }>('app').port;
@@ -24,8 +24,7 @@ export default class Server {
 
   private static addRoutes() {
     this.expressApp.use(express.json());
-    // this.expressApp.use(authMiddleware.basicMiddleware);
-    this.expressApp.use('/message', messageRouter);
+    this.expressApp.use('/mail', mailRouter);
     this.expressApp.use(this.errorMiddleware);
   }
 
