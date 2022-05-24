@@ -101,7 +101,6 @@ export default class Redis {
 
   public static lpush<T>(value: T, queue: string): Promise<number> {
     const stringValue = JSON.stringify(value);
-    console.log('stringValue', stringValue)
     return Redis.lpush_bind(queue, stringValue) as Promise<number>;
   }
 
