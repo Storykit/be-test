@@ -13,6 +13,7 @@ Things we will look at and perhaps dicuss:
 * Handle race conditions.
 * Ensure that you're utilizing TypeScript.
 * Git workflow.
+* Unit testing.
 
 The delivery of your solution to us should be in the form of a repository. Private or not, it's up to you. Just make sure to invite us to your repo if it's private. Your repository can but doesn't have to be a fork of this repository.
 
@@ -23,6 +24,6 @@ In this repository we have provided you with a boilerplate that you can use to s
 2. Run `npm i`
 3. Run `docker compose up --build` to start the NodeJS service and Redis
 
-## Commands
-- Connecting to Redis: Stand in this repo folder and run `docker compose exec redis redis-cli` which will connect you to the Redis container running in Docker
+## Testing
+Run `npm test` to run the test suite.
 
