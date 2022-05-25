@@ -1,3 +1,4 @@
 export interface QueueConfig {
-  message_queue: string;
+  mailbox_queue: string;
+  postoffice_queue: string;
 }

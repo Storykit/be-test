@@ -1,6 +1,8 @@
 import Server from './server';
+import Cycle from './cycle';
 import Redis from 'pkg-redis/redis.service';
 import log from './services/logging.service';
+import './mailman/mailman.controller';
 
 if (!process.env.REDIS_URL) {
   throw new Error('Please specify all environmental variables.');
@@ -9,7 +11,7 @@ if (!process.env.REDIS_URL) {
 (function (): void {
   Promise.all([Redis.connect(), Server.start()])
     .then(() => {
-      /*       Cycle.start(); */
+      Cycle.start();
       log.info('Server started');
     })
     .catch((err) => {
@@ -24,10 +26,9 @@ const close = () => {
   if (!closing) {
     closing = true;
     log.info('Server stopping');
-    // Cycle.stop();
+    Cycle.stop();
     Promise.all([Redis.disconnect(), Server.stop()])
       .catch((err) => {
-        // Sentry.captureException(err);
         log.error(err);
       })
       .finally(() => {
